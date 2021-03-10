@@ -1,0 +1,54 @@
+#Import turtle and math
+import turtle
+from math import *
+
+#The purpose of this code is to make tally marks using turtle
+print('The purpose of this code is to make tally marks.')
+
+#Needs to work for numbers 0-100
+#Every 5th tally needs to be diagnal.
+#This means that 20 tallies are diagnal
+
+#Initialize values
+marks = turtle.Turtle()
+n = int(input("Number: ")) #Asking user to enter a number
+marks.right(88)
+x = 0
+y=0
+turtle.setup(width=500,height=500)
+
+#make a vertical line
+def line(x,y):
+    marks.pu()
+    marks.setpos(x*20,y*25)
+    marks.pd()
+    marks.forward(30)
+#make a vertical line at the 5th instance
+def vertical():
+    marks.right(130)
+    marks.forward(33*sqrt(5))
+    marks.right(221)
+
+groups = n//5 #have 5 in a set 
+print(groups)
+for i in range(1,n):
+    print(i)
+    if(i%5 == 0): 
+        vertical()
+    if(i//5 == 0):
+            line(x, y)
+            if(n//5 == 0): 
+                vertical()
+            else:
+                line(x, y)
+    else:
+        line(x,y)
+       # line(x-2, y)
+    #else: 
+     #   for k in range(1, groups + 1):
+      #      line(x, y)
+    
+    #increase by 1 every time
+    x += 1 
+    
+turtle.done() #finish drawing
