@@ -1,0 +1,28 @@
+#The purpose of this lab is to use our understnanding of functions in order to
+#caluclate my grade in the class.
+#Create a function to calculate grades
+from math import *
+def grade(lab_assignments, quiz, exam, department_quiz, industry_DI):
+    #Based on the syllabus the grades are calculated
+    l_a = .30 * lab_assignments
+    q_class = .24 * quiz
+    d_quiz = .08 * department_quiz
+    exam_1 = .15 * exam
+    i_DI= .03 * industry_DI
+    #Add them all togehter
+    grade_total = (l_a + q_class + d_quiz + exam_1 + i_DI)/.8
+    print("Grade: ", round(grade_total))
+    e_new = abs(((grade_total * .8) - int(input('Desired Grade: ')))/.2)
+    print('To Bring Grade Up: ', round(e_new))
+    ex_2 = input('Did you take exam 2 Y/N: ')
+    'Y' == True
+    'N' == False
+    if ex_2 == 'Y':
+        exam_2 = int(input('Exam 2 Grade: '))
+        exam_2 = .2 * exam_2
+        #Now the potential exam 2 is used
+        grade_2 = l_a + q_class + d_quiz + exam_1 + i_DI + exam_2
+        print('Grade with exam 2: ', round(grade_2))
+
+#Using the grades provided on the lab document on ecampus
+grade(int(input('Lab Assignments: ')), int(input('Class Quizes: ')), int(input('Exam 1: ')), int(input('Department Quiz: ')), int(input('Industry Night/DI: ')))
